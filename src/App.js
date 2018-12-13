@@ -71,6 +71,7 @@ class App extends React.Component {
     axios.post(`${serverURL}/api/notes`, this.state.note).then(response => {
       let newNote = this.state.note;
       newNote.id = response.data.id;
+      console.log('adding note', newNote);
       this.setState({
         notesData: [...this.state.notesData, newNote],
         note: blankNoteForm

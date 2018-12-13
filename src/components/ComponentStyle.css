@@ -1,5 +1,6 @@
 .notes-display {
   display: flex;
+  min-height: 100vh;
 }
 
 .note-card {

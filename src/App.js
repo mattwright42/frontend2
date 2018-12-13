@@ -69,16 +69,22 @@ class App extends React.Component {
   };
 
   handleAddNewNote = () => {
-    axios.post(`${serverURL}/api/notes`, this.state.note).then(response => {
-      let newNote = this.state.note;
-      newNote.id = response.data.id;
-      console.log('adding note', newNote);
-      this.setState({
-        notesData: [...this.state.notesData, newNote],
-        note: blankNoteForm,
-        updated: true
+    console.log('start');
+    axios
+      .post(`${serverURL}/api/notes`, this.state.note)
+      .then(response => {
+        let newNote = this.state.note;
+        newNote.id = response.data.id;
+        console.log('adding note', newNote);
+        this.setState({
+          notesData: [...this.state.notesData, newNote],
+          note: blankNoteForm,
+          updated: true
+        });
+      })
+      .catch(err => {
+        console.log(err);
       });
-    });
   };
 
   handleDeleteNote = noteId => {

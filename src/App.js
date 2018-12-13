@@ -28,7 +28,8 @@ class App extends React.Component {
         body: ''
       },
       isUpdating: false,
-      showModal: false
+      showModal: false,
+      updated: false
     };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -74,7 +75,8 @@ class App extends React.Component {
       console.log('adding note', newNote);
       this.setState({
         notesData: [...this.state.notesData, newNote],
-        note: blankNoteForm
+        note: blankNoteForm,
+        updated: true
       });
     });
   };
